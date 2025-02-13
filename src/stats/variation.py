@@ -24,3 +24,8 @@ def get_extremes(nums: list):
     output_str += f"max: {sorted_nums[-1]} "
 
     return output_str
+
+'''
+TODO: calculate: mode, range, expected value, standard diviation, CDF
+
+'''
