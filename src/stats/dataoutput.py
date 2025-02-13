@@ -10,6 +10,6 @@ series_table.add_column("Frequency")
 
 
 def print_variation_series(statistical_series: dict):
-    series_table.add_row(statistical_series.values)
-    series_table.add_row(statistical_series.keys)
+    for i in statistical_series:
+        series_table.add_row(str(i), str(statistical_series[i]))
     console.print(series_table)
