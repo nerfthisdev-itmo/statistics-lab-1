@@ -56,7 +56,7 @@ class IntervalVariationSeries:
         self.bins = np.arange(self.min, self.max + self.h, self.h)
     
     def get_intervals(self):
-        return [(self.bins[i], self.bins[i+1]) for i in range(len(self.bins) - 1)]
+        return [(round(self.bins[i], 4), round(self.bins[i+1], 4)) for i in range(len(bins) - 1)]
     
     def get_frequencies(self):
         hist, _ = np.histogram(self.data, bins=self.bins)
