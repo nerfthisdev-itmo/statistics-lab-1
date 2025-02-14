@@ -1,24 +1,32 @@
 from rich.console import Console
 from rich.table import Table
+from variation import IntervalVariationSeries
+from typing import Type
+
 
 console = Console()
-series_table = Table(show_header=True, header_style="bold magenta")
+variation_series_table = Table(show_header=True, header_style="bold magenta")
+interval_series_table = Table(show_header=True, header_style="bold green")
 
-series_table.add_column("Value")
-series_table.add_column("Frequency")
+interval_series_table.add_column("Interval")
+interval_series_table.add_column("Frequency")
+
+variation_series_table.add_column("Value")
+variation_series_table.add_column("Frequency")
 
 
 
 
 def print_variation_series(statistical_series: dict):
     for i in statistical_series:
-        series_table.add_row(str(i), str(statistical_series[i]))
-    console.print(series_table)
+        variation_series_table.add_row(str(i), str(statistical_series[i]))
+    console.print(variation_series_table)
     
     
 
-'''
-TODO: add general information printing like: mode, range, expected value, standard diviation
 
-'''
-
+def print_interval_series(interval_series: IntervalVariationSeries):
+    intervals = interval_series.get_frequencies()
+    frequencies = interval_series.get_frequencies()
+    for (start, end), freq in zip(intervals, frequencies):
+        interval_series_table.add_row(f"[{start}, {end})", str(freq))
