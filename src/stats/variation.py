@@ -61,3 +61,9 @@ class IntervalVariationSeries:
     def get_frequencies(self):
         hist, _ = np.histogram(self.data, bins=self.bins)
         return hist
+    
+    def show(self):
+        intervals = self.get_intervals()
+        frequencies = self.get_frequencies()
+        for (start, end), freq in zip(intervals, frequencies):
+            print(f"[{start}, {end}) → {freq}")
