@@ -1,12 +1,25 @@
 from stats.variation import *
 from stats.dataoutput import *
+import argparse
+
+
+def load_data(file_path):
+    with open(file_path, 'r') as file:
+        data = file.read().strip()  
+    return np.array([float(x) for x in data.split(',')])  
 
 def main():
-    nums = [1, 2, 1, 1, 0, 2, 1, 1, 1, 3, 1, 1, 1, 4, 2, 2, 2, 2, 0, 1, 4, 3, 3, 1, 1, 0, 0, 1, 2, 2, 4, 5, 3, 3, 3, 2, 2,2, 1,1, 2, 1, 0, 2, 2, 2, 1, 1, 3, 3, 4, 0, 2, 2, 2, 1, 3, 1, 3, 2]
+    parser = argparse.ArgumentParser(description="Analyze series")
+    parser.add_argument('file', type=str, help="Path to data")
+    args = parser.parse_args()
+    
+    nums = load_data(args.file)
+    
     x = Variation(nums)
     print(x.statistical_series)
     print_variation_series(x.statistical_series)
-    
+    y = IntervalVariationSeries(x.data)
+    print_interval_series(y)
 
 if __name__ == "__main__":
     main()
