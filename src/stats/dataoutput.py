@@ -1,7 +1,5 @@
 from rich.console import Console
 from rich.table import Table
-from variation import IntervalVariationSeries
-from typing import Type
 
 
 console = Console()
@@ -25,8 +23,9 @@ def print_variation_series(statistical_series: dict):
     
 
 
-def print_interval_series(interval_series: IntervalVariationSeries):
-    intervals = interval_series.get_frequencies()
+def print_interval_series(interval_series):
+    intervals = interval_series.get_intervals()
     frequencies = interval_series.get_frequencies()
     for (start, end), freq in zip(intervals, frequencies):
         interval_series_table.add_row(f"[{start}, {end})", str(freq))
+    console.print(interval_series_table)
