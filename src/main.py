@@ -19,7 +19,7 @@ def plot_hist(data: IntervalVariationSeries):
     plt.title("Histogram")
     plt.xticks(adjusted_bins, rotation=45) 
     plt.grid(True)
-    plt.savefig('hist.pdf')
+    plt.savefig('output/hist.pdf')
     
 
 def main():
