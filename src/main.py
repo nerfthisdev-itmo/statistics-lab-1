@@ -1,7 +1,14 @@
 from stats.plotting import plot_cdf, plot_cumulative, plot_polygon
 from stats.variation import *
 from stats.dataoutput import *
+from pathlib import Path
 
+
+
+
+BASE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = BASE_DIR.parent  # Корень проекта (папка, содержащая src и output)
+OUTPUT_DIR = PROJECT_ROOT / "output/task1"
 
 def load_data(file_path):
     
@@ -15,13 +22,17 @@ def load_data(file_path):
     
     
 def print_answer_A(x:Variation, precision):
-    dir_name = "output/task1/"
-    plot_cdf(x, dir_name)
-    plot_polygon(x, dir_name)
-    plot_cumulative(x, dir_name)
-    print(f"Эмпирическая функция распределения записана в {dir_name}eCDF.pdf")
-    print(f"Полигон частот записан в {dir_name}polygon.pdf")
-    print(f"Кумулята записана в {dir_name}cumulative.pdf \n")
+    
+    relative_path = OUTPUT_DIR.relative_to(PROJECT_ROOT)
+    
+    display_path = f"/{relative_path.as_posix()}/"
+
+    plot_cdf(x, str(OUTPUT_DIR))
+    plot_polygon(x, str(OUTPUT_DIR))
+    plot_cumulative(x, str(OUTPUT_DIR))
+    print(f"Эмпирическая функция распределения записана в {display_path}eCDF.pdf")
+    print(f"Полигон частот записан в {display_path}polygon.pdf")
+    print(f"Кумулята записана в {display_path}cumulative.pdf \n")
     
     print(f'n = {len(x.data)}')
     print_variation_series(x.statistical_series)
@@ -50,14 +61,18 @@ def print_answer_A(x:Variation, precision):
 
 def main():
     
-    nums_A = load_data("./15")
+    nums_A = load_data(BASE_DIR / "A15")
     
+    print()
+
+    nums_B = load_data(BASE_DIR / "B15")
+
     x = Variation(nums_A)
     
     print_answer_A(x, 4)
     
     
-
-
 if __name__ == "__main__":
     main()
+
+
