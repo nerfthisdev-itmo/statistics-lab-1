@@ -8,7 +8,16 @@ import matplotlib.pyplot as plt
 def load_data(file_path):
     with open(file_path, 'r') as file:
         data = file.read().strip()  
-    return np.array([float(x) for x in data.split(',')])  
+    if "." in data:
+         return np.array([float(x) for x in data.split(',')])
+    else:
+        return np.array([float(int(x)) for x in data.split(',')])
+   
+
+
+
+
+
 
 
 def plot_hist(data: IntervalVariationSeries):
@@ -20,6 +29,28 @@ def plot_hist(data: IntervalVariationSeries):
     plt.xticks(adjusted_bins, rotation=45) 
     plt.grid(True)
     plt.savefig('output/hist.pdf')
+
+def plot_poly(data: Variation):
+    
+    sns.lineplot(data=data.statistical_series, markers=True)
+    plt.savefig('output/poly.pdf')
+    
+    
+def print_answer_A(x:Variation, presicion):
+    print(f'n = {len(x.data)}')
+    print_variation_series(x.statistical_series)
+    print(f'min: {x.min} max: {x.max}')
+    print(f'Размах: {x.range}')
+    print(f'Оценка математического ожидания (начальный момент): {round(x.expected_value_estimate, presicion)}')
+    print(f'Стандартное отклонение: {round(x.expected_value_deviation, presicion)}')
+    print(f'Дисперсия: {round(x.sample_variance, presicion)}')
+    print(f'Оценка выборочного среднеквадратического отклонения: {round(x.sample_standard_deviation, presicion)}')
+    print(f'Оценка выборочного с.к.о. (исправленная): {round(x.sample_standard_deviation_corrected, presicion)}')
+
+    
+    
+    
+    
     
 
 def main():
@@ -30,12 +61,8 @@ def main():
     nums = load_data(args.file)
     
     x = Variation(nums)
-    print(x.statistical_series)
-    print_variation_series(x.statistical_series)
-    y = IntervalVariationSeries(x.data)
-    print_interval_series(y)
     
-    plot_hist(y)
+    print_answer_A(x, 4)
     
     
 
