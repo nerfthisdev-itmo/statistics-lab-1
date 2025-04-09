@@ -1,10 +1,9 @@
+from stats.plotting import plot_cdf, plot_cumulative, plot_polygon
 from stats.variation import *
 from stats.dataoutput import *
+
+
 import argparse
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-
 def load_data(file_path):
     with open(file_path, 'r') as file:
         data = file.read().strip()  
@@ -12,28 +11,7 @@ def load_data(file_path):
          return np.array([float(x) for x in data.split(',')])
     else:
         return np.array([float(int(x)) for x in data.split(',')])
-   
 
-
-
-
-
-
-
-def plot_hist(data: IntervalVariationSeries):
-    adjusted_bins = np.linspace(data.min, data.max, data.k + 1)  
-    sns.histplot(data.data, bins=data.bins) 
-    plt.xlabel("Values")
-    plt.ylabel("Frequency")
-    plt.title("Histogram")
-    plt.xticks(adjusted_bins, rotation=45) 
-    plt.grid(True)
-    plt.savefig('output/hist.pdf')
-
-def plot_poly(data: Variation):
-    
-    sns.lineplot(data=data.statistical_series, markers=True)
-    plt.savefig('output/poly.pdf')
     
     
 def print_answer_A(x:Variation, presicion):
@@ -46,8 +24,10 @@ def print_answer_A(x:Variation, presicion):
     print(f'Дисперсия: {round(x.sample_variance, presicion)}')
     print(f'Оценка выборочного среднеквадратического отклонения: {round(x.sample_standard_deviation, presicion)}')
     print(f'Оценка выборочного с.к.о. (исправленная): {round(x.sample_standard_deviation_corrected, presicion)}')
-
     
+    plot_cdf(x, "output/")
+    plot_polygon(x, "output/")
+    plot_cumulative(x, "output/")
     
     
     
