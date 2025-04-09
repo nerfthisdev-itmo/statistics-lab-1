@@ -25,9 +25,9 @@ def print_answer_A(x:Variation, presicion):
     print(f'Оценка выборочного среднеквадратического отклонения: {round(x.sample_standard_deviation, presicion)}')
     print(f'Оценка выборочного с.к.о. (исправленная): {round(x.sample_standard_deviation_corrected, presicion)}')
     
-    plot_cdf(x, "output/")
-    plot_polygon(x, "output/")
-    plot_cumulative(x, "output/")
+    plot_cdf(x, "output/task1/")
+    plot_polygon(x, "output/task1/")
+    plot_cumulative(x, "output/task1/")
     
     
     
