@@ -17,7 +17,11 @@ class Variation:
         self.sample_variance = self.get_sample_variance()
         self.sample_standard_deviation = self.get_sample_standard_deviation()
         self.sample_standard_deviation_corrected = self.get_sample_standard_deviation_corrected()
-        
+        self.cumulative_values = []
+        prev = 0
+        for num in self.statistical_series.values():
+            self.cumulative_values.append(prev)
+            prev += num
     
     def get_variation_series(self):
         return self.data
