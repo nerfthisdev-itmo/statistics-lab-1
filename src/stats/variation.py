@@ -2,17 +2,21 @@ from typing import Dict
 import numpy as np
 import math
 import operator
+import scipy
 
 class Variation:    
     def __init__(self, data):
-        self.data = sorted(data)
+        self.data: list[float] = sorted(data)
         self.statistical_series: Dict[float, int] = self.get_statistical_series()
         self.mode = self.get_mode()
-        self.extremes = self.get_extremes()
+        self.min = min(self.data)
+        self.max = max(self.data)
+        self.range = self.max - self.min
         self.expected_value_estimate = self.get_expected_value_estimate()
         self.expected_value_deviation = self.get_expected_value_deviation()
         self.sample_variance = self.get_sample_variance()
         self.sample_standard_deviation = self.get_sample_standard_deviation()
+        self.sample_standard_deviation_corrected = self.get_sample_standard_deviation_corrected()
         
     
     def get_variation_series(self):
@@ -59,21 +63,17 @@ class Variation:
         return math.sqrt(self.sample_variance * (len(self.data) / (len(self.data) - 1)))
         
     
-    def get_cdf(self):
+    def get_cdf(self, x) -> float:
+        count = 0
 
-    
+        for value in self.data:
+            if value < x:
+                count += 1
+
+        return count / len(self.data)
 
 
-    def get_extremes(self):
-        sorted_nums: list = sorted(self.data)
-        
-        self.max = sorted_nums[-1]
-        self.min = sorted_nums[0]
 
-        output_str: str = f"min: {sorted_nums[0]} "
-        output_str += f"max: {sorted_nums[-1]} "
-
-        return output_str
 
 
 '''
@@ -104,3 +104,34 @@ class IntervalVariationSeries:
         frequencies = self.get_frequencies() 
         for (start, end), freq in zip(intervals, frequencies):
             print(f"[{start}, {end}) → {freq}")
+
+
+
+
+def laplace_function(x) -> float:
+    return scipy.stats.norm.cdf(x)
+
+def student_coefficient(gamma, n) -> float:
+    return scipy.stats.t.ppf(gamma, n)
+
+def laplace_function_normalized(x) -> float:
+    return laplace_function(x) - 0.5
+
+def get_inverse_laplace(alpha: float):
+    error_margin = 0.0001
+    # начальное значение - половина от максимального
+    step = 4 / 2
+
+    last_point = step
+    last_value = 0
+    while math.fabs(last_value - alpha) > error_margin:
+        last_value = laplace_function(last_point)
+
+        if last_value < alpha:
+            last_point += step
+        if last_value >= alpha:
+            last_point -= step
+
+        step = step / 2
+
+    return last_point
