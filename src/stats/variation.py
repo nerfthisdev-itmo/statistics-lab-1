@@ -77,13 +77,6 @@ class Variation:
         return count / len(self.data)
 
 
-
-
-
-'''
-TODO: calculate: standard diviation, CDF
-'''
-
 class IntervalVariationSeries:
     def __init__(self, data):
         self.data = np.array(data)

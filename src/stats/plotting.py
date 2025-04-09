@@ -17,8 +17,8 @@ def plot_cdf(variation_series: Variation, dir_path: str):
     plt.ylabel("F^{*}(x)")
     plt.title("Эмпирическая функция распределения")
     plt.grid(True)
-    plt.savefig(dir_path + "eCDF.pdf")
-    plt.savefig(dir_path + "eCDF.png")
+    plt.savefig(dir_path + "/eCDF.pdf")
+    plt.savefig(dir_path + "/eCDF.png")
     plt.close()
 
 
@@ -34,8 +34,8 @@ def plot_polygon(variation_series:Variation, dir_name: str):
 
     plt.legend()
     plt.grid(True)
-    plt.savefig(dir_name + "polygon.pdf")
-    plt.savefig(dir_name + "polygon.png")
+    plt.savefig(dir_name + "/polygon.pdf")
+    plt.savefig(dir_name + "/polygon.png")
     plt.close()
 
 def plot_cumulative(variation_series:Variation, dir_name: str): 
@@ -49,6 +49,6 @@ def plot_cumulative(variation_series:Variation, dir_name: str):
 
     plt.legend()
     plt.grid(True)
-    plt.savefig(dir_name + "cumulative.pdf")
-    plt.savefig(dir_name + "cumulative.png")
+    plt.savefig(dir_name + "/cumulative.pdf")
+    plt.savefig(dir_name + "/cumulative.png")
     plt.close() 
