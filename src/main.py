@@ -3,8 +3,8 @@ from stats.variation import *
 from stats.dataoutput import *
 
 
-import argparse
 def load_data(file_path):
+    
     with open(file_path, 'r') as file:
         data = file.read().strip()  
     if "." in data:
@@ -49,13 +49,10 @@ def print_answer_A(x:Variation, precision):
     
 
 def main():
-    parser = argparse.ArgumentParser(description="Analyze series")
-    parser.add_argument('file', type=str, help="Path to data")
-    args = parser.parse_args()
     
-    nums = load_data(args.file)
+    nums_A = load_data("./A15")
     
-    x = Variation(nums)
+    x = Variation(nums_A)
     
     print_answer_A(x, 4)
     
