@@ -10,5 +10,4 @@ pip-delete-this-directory.txt
 input
 *.log
 *.tmp
-output/
 .vscode/
