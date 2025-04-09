@@ -50,7 +50,7 @@ def print_answer_A(x:Variation, precision):
 
 def main():
     
-    nums_A = load_data("./A15")
+    nums_A = load_data("./15")
     
     x = Variation(nums_A)
     
