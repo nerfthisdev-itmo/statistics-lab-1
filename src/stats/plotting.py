@@ -17,3 +17,17 @@ def plot_cdf(nums: list[float], func, dir_path: str):
     plt.savefig(dir_path + "eCDF.png")
     plt.close()
 
+
+
+def plot_polygon(x_vals: list[float], y_vals: list[float], dir_name: str):
+    if len(x_vals) != len(y_vals):
+        print("ERROR: x_vals: list[float] != y_vals: list[float]")
+        return
+
+    plt.plot(x_vals, y_vals, marker="o", color="blue", label="Полигон")
+
+    plt.legend()
+    plt.grid(True)
+    plt.savefig(dir_name + "polygon.pdf")
+    plt.savefig(dir_name + "polygon.png")
+    plt.close()
