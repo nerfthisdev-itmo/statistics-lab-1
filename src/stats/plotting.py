@@ -57,7 +57,7 @@ def plot_cumulative(variation_series:Variation | IntervalVariationSeries, dir_na
 
 def plot_ogive(variation_series: IntervalVariationSeries, dir_name: str):
     
-    plt.plot(variation_series.bin_centers, variation_series.cumulative_values, 
+    plt.plot(variation_series.cumulative_values, variation_series.bin_centers, 
         marker="o",
         color="blue",
         label="Кумулятивная кривая",)
