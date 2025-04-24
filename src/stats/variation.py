@@ -1,5 +1,4 @@
 from typing import Dict
-import numpy as np
 import math
 import operator
 import scipy
@@ -77,31 +76,6 @@ class Variation:
         return count / len(self.data)
 
 
-class IntervalVariationSeries:
-    def __init__(self, data):
-        self.data = np.array(data)
-        self.min = np.min(self.data)
-        self.max = np.max(self.data)
-        self.range = self.max - self.min
-        self.n = len(self.data)
-        self.k = int(1 + np.log2(self.n))
-        self.h = self.range / self.k
-        self.bins = np.arange(self.min, self.max + self.h, self.h)
-    
-    def get_intervals(self):
-        return [(round(self.bins[i], 4), round(self.bins[i+1], 4)) for i in range(len(self.bins) - 1)]
-    
-    def get_frequencies(self):
-        hist, _ = np.histogram(self.data, bins=self.bins)
-        return hist
-        
-    
-    def show(self):
-        intervals = self.get_intervals()
-        frequencies = self.get_frequencies() 
-        for (start, end), freq in zip(intervals, frequencies):
-            print(f"[{start}, {end}) → {freq}")
-
 
 
 
@@ -132,3 +106,4 @@ def get_inverse_laplace(alpha: float):
         step = step / 2
 
     return last_point
+

@@ -3,19 +3,20 @@ from rich.table import Table
 
 
 console = Console()
-variation_series_table = Table(show_header=True, header_style="bold magenta")
 interval_series_table = Table(show_header=True, header_style="bold green")
 
 interval_series_table.add_column("Interval")
 interval_series_table.add_column("Frequency")
 
-variation_series_table.add_column("Value")
-variation_series_table.add_column("Frequency")
 
 
 
 
 def print_variation_series(statistical_series: dict):
+    variation_series_table = Table(show_header=True, header_style="bold magenta")
+    variation_series_table.add_column("Value")
+    variation_series_table.add_column("Frequency")
+
     for i in statistical_series:
         variation_series_table.add_row(str(i), str(statistical_series[i]))
     console.print(variation_series_table)

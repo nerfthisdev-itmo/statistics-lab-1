@@ -1,9 +1,10 @@
 import matplotlib.pyplot as plt
 
+from stats.interval import IntervalVariationSeries
 from stats.variation import Variation
 
 
-def plot_cdf(variation_series: Variation, dir_path: str):
+def plot_cdf(variation_series: Variation | IntervalVariationSeries, dir_path: str):
     nums = variation_series.data
     func = lambda k: variation_series.get_cdf(k)
     x_values = nums.copy()
@@ -23,7 +24,7 @@ def plot_cdf(variation_series: Variation, dir_path: str):
 
 
 
-def plot_polygon(variation_series:Variation, dir_name: str):
+def plot_polygon(variation_series:Variation | IntervalVariationSeries, dir_name: str):
     x_vals = list(variation_series.statistical_series.keys())
     y_vals = list(variation_series.statistical_series.values())
     if len(x_vals) != len(y_vals):
@@ -38,7 +39,7 @@ def plot_polygon(variation_series:Variation, dir_name: str):
     plt.savefig(dir_name + "/polygon.png")
     plt.close()
 
-def plot_cumulative(variation_series:Variation, dir_name: str): 
+def plot_cumulative(variation_series:Variation | IntervalVariationSeries, dir_name: str): 
     x_vals = list(variation_series.statistical_series.keys())
     y_vals = variation_series.cumulative_values
     if len(x_vals) != len(y_vals):
