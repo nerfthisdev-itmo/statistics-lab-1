@@ -32,7 +32,7 @@
 
 ![alt text](https://github.com/nerfthis-itmo/statistics-lab-1/blob/development/output/task1/eCDF.png?raw=true)
 ![alt text](https://github.com/nerfthis-itmo/statistics-lab-1/blob/development/output/task1/polygon.png?raw=true)
-![alt text](https://github.com/nerfthis-itmo/statistics-lab-1/blob/development/output/task1/cumulative.png?raw=true)
+![alt text](https://github.com/nerfthisdev-itmo/statistics-lab-1/blob/development/output/task1/cumulative.png)
 
 ## Выборка B
 
