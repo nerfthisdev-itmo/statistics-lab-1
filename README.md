@@ -5,7 +5,9 @@
 мой вариант 15.
 
 Лабораторная работа № 1 (расчётная часть)
+
 1. Для выборки А:
+
 - указать максимальный и минимальный элементы выборки, найти размах выборки;
 - построить статистический ряд и начертить полигон ряда;
 - записать эмпирическую функцию распределения и построить её график;
@@ -14,6 +16,7 @@
 - сделать выводы и сформулировать гипотезы о распределении генеральной совокупности из которой извлечена выборка, оценить параметры этого распределения
 
 2. Для выборки В:
+
 - указать максимальный и минимальный элементы выборки, найти размах выборки;
 - определить оптимальное количество интервалов группировки и длину интервала группировки;
 - построить интервальный ряд и гистограмму, а также полигон ряда;
@@ -25,4 +28,15 @@
 - если ряд интервальный, то функция распределения должна совпадать с кумулятой и не быть ступенчатой
 - $x^{*}$ - середина интервала
 
+## Выборка A
 
+![alt text](https://github.com/nerfthisdev/matstat-ultimate/blob/main/output/task1/eCDF.png?raw=true)
+![alt text](https://github.com/nerfthisdev/matstat-ultimate/blob/main/output/task1/polygon.png?raw=true)
+![alt text](https://github.com/nerfthisdev/matstat-ultimate/blob/main/output/task1/cumulative.png?raw=true)
+
+## Выборка B
+
+![alt text](https://github.com/nerfthisdev/matstat-ultimate/blob/main/output/task2/eCDF.png?raw=true)
+![alt text](https://github.com/nerfthisdev/matstat-ultimate/blob/main/output/task2/cumulative.png?raw=true)
+![alt text](https://github.com/nerfthisdev/matstat-ultimate/blob/main/output/task2/polygon.png?raw=true)
+![alt text](https://github.com/nerfthisdev/matstat-ultimate/blob/main/output/task2/ogive.png?raw=true)
