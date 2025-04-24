@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from numpy import var
 
 from stats.interval import IntervalVariationSeries
 from stats.variation import Variation
@@ -52,4 +53,27 @@ def plot_cumulative(variation_series:Variation | IntervalVariationSeries, dir_na
     plt.grid(True)
     plt.savefig(dir_name + "/cumulative.pdf")
     plt.savefig(dir_name + "/cumulative.png")
-    plt.close() 
+    plt.close()
+
+def plot_ogive(variation_series: IntervalVariationSeries, dir_name: str):
+    
+    plt.plot(variation_series.bin_centers, variation_series.cumulative_values, 
+        marker="o",
+        color="blue",
+        label="Кумулятивная кривая",)
+
+    if variation_series.median is not None:
+        plt.axhline(
+            y=variation_series.median,
+            color="red",
+            linestyle="--",
+            linewidth=1.5,
+            label=f"Медиана ({variation_series.median:.2f})",
+        )
+
+    plt.legend()
+    plt.grid(True)
+    plt.savefig(dir_name + "/ogive.pdf")
+    plt.savefig(dir_name + "/ogive.png")
+    plt.close()
+

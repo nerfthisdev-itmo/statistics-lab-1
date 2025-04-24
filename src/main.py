@@ -1,5 +1,5 @@
 from stats.interval import IntervalVariationSeries
-from stats.plotting import plot_cdf, plot_cumulative, plot_polygon
+from stats.plotting import plot_cdf, plot_cumulative, plot_ogive, plot_polygon
 from stats.variation import *
 from stats.dataoutput import *
 from pathlib import Path
@@ -64,10 +64,12 @@ def print_answer_B(y:IntervalVariationSeries, precision):
     plot_cdf(y, str(OUTPUT_DIR_TASK2))
     plot_polygon(y, str(OUTPUT_DIR_TASK2))
     plot_cumulative(y, str(OUTPUT_DIR_TASK2))
+    plot_ogive(y, str(OUTPUT_DIR_TASK2))
 
     print(f"Эмпирическая функция распределения записана в {display_path}eCDF.pdf")
     print(f"Полигон частот записан в {display_path}polygon.pdf")
     print(f"Кумулята записана в {display_path}cumulative.pdf \n")
+    print(f"Огива записана в {display_path}ogive.pdf")
     print(f'n = {len(y.data)}')
     print_variation_series(y.statistical_series)
     print(f"min: {y.min} max: {y.max}")
