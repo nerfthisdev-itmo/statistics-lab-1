@@ -1,3 +1,4 @@
+from typing import List
 import matplotlib.pyplot as plt
 from numpy import var
 
@@ -60,7 +61,7 @@ def plot_ogive(variation_series: IntervalVariationSeries, dir_name: str):
     plt.plot(variation_series.cumulative_values, variation_series.bin_centers, 
         marker="o",
         color="blue",
-        label="Кумулятивная кривая",)
+        label="Огивная кривая",)
 
     if variation_series.median is not None:
         plt.axhline(
@@ -77,3 +78,25 @@ def plot_ogive(variation_series: IntervalVariationSeries, dir_name: str):
     plt.savefig(dir_name + "/ogive.png")
     plt.close()
 
+
+def boxplot_for_two_lists(x, y:IntervalVariationSeries | Variation, dir_name: str):
+    # Создаем график с двумя subplots
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+
+    # Боксплот для первого набора данных
+    ax1.boxplot(x.data, vert=True, patch_artist=True)
+    ax1.set_title("Первый набор данных")
+    ax1.set_ylabel("Значения")
+    ax1.grid(True)
+
+    ax2.boxplot(y.data, vert=True, patch_artist=True)
+    ax2.set_title("Второй набор данных")
+    ax2.grid(True)
+
+    plt.suptitle("Сравнение распределений данных")
+    plt.tight_layout()
+
+    plt.savefig(dir_name + "/boxplot.pdf")
+    plt.savefig(dir_name + "/boxplot.png")
+
+    plt.close()

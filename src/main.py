@@ -1,5 +1,5 @@
 from stats.interval import IntervalVariationSeries
-from stats.plotting import plot_cdf, plot_cumulative, plot_ogive, plot_polygon
+from stats.plotting import boxplot_for_two_lists, plot_cdf, plot_cumulative, plot_ogive, plot_polygon
 from stats.variation import *
 from stats.dataoutput import *
 from pathlib import Path
@@ -11,6 +11,8 @@ BASE_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = BASE_DIR.parent  # Корень проекта (папка, содержащая src и output)
 OUTPUT_DIR_TASK1 = PROJECT_ROOT / "output/task1"
 OUTPUT_DIR_TASK2 = PROJECT_ROOT / "output/task2"
+
+OUTPUT_DIR = PROJECT_ROOT / "output/"
 
 def load_data(file_path):
     
@@ -98,13 +100,13 @@ def main():
     x = Variation(nums_A)
 
     y = IntervalVariationSeries(nums_B)
-
+    
     
 
     
     print_answer_A(x, 4)
     print_answer_B(y, 4)
-    
+    boxplot_for_two_lists(x, y, str(OUTPUT_DIR))
     
 if __name__ == "__main__":
     main()
