@@ -30,13 +30,13 @@
 
 ## Выборка A
 
-![alt text](https://github.com/nerfthis-itmo/matstat-ultimate/blob/development/output/task1/eCDF.png?raw=true)
-![alt text](https://github.com/nerfthis-itmo/matstat-ultimate/blob/development/output/task1/polygon.png?raw=true)
-![alt text](https://github.com/nerfthis-itmo/matstat-ultimate/blob/development/output/task1/cumulative.png?raw=true)
+![alt text](https://github.com/nerfthis-itmo/statistics-lab-1/blob/development/output/task1/eCDF.png?raw=true)
+![alt text](https://github.com/nerfthis-itmo/statistics-lab-1/blob/development/output/task1/polygon.png?raw=true)
+![alt text](https://github.com/nerfthis-itmo/statistics-lab-1/blob/development/output/task1/cumulative.png?raw=true)
 
 ## Выборка B
 
-![alt text](https://github.com/nerfthis-itmo/matstat-ultimate/blob/development/output/task2/eCDF.png?raw=true)
-![alt text](https://github.com/nerfthis-itmo/matstat-ultimate/blob/development/output/task2/cumulative.png?raw=true)
-![alt text](https://github.com/nerfthis-itmo/matstat-ultimate/blob/development/output/task2/polygon.png?raw=true)
-![alt text](https://github.com/nerfthis-itmo/matstat-ultimate/blob/development/output/task2/ogive.png?raw=true)
+![alt text](https://github.com/nerfthis-itmo/statistics-lab-1/blob/development/output/task2/eCDF.png?raw=true)
+![alt text](https://github.com/nerfthis-itmo/statistics-lab-1/blob/development/output/task2/cumulative.png?raw=true)
+![alt text](https://github.com/nerfthis-itmo/statistics-lab-1/blob/development/output/task2/polygon.png?raw=true)
+![alt text](https://github.com/nerfthis-itmo/statistics-lab-1/blob/development/output/task2/ogive.png?raw=true)
